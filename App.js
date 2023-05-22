@@ -1,56 +1,76 @@
+import React from "react";
+import { View, StyleSheet, Image, Text } from "react-native";
+import { Button } from "react-native-paper";
 
-import React from 'react';
-import { Stack, Button } from '@react-native-material/core';
-
-const App = () => (
-    <ImageBackground
-      source={require('../assets/background-first.png')}
-      resizeMode="repeat"
-      style={styles.background}
-    >
-      <Image source={require('../assets/logo.png')} style={styles.image}></Image>
-      <Text style={styles.header}>Login</Text>
-      <Text style={styles.text}>
-        The easiest way to start with your amazing application.
-      </Text>
-      <Button
-        mode="contained"
-        onPress={() => navigation.navigate('LoginScreen')}
-      >
-        Login
-      </Button>
-      <Button
-        mode="outlined"
-        onPress={() => navigation.navigate('RegisterScreen')}
-      >
-        Sign Up
-      </Button>
-    </ImageBackground>
-);
+const App = () => {
+  return (
+    <View style={styles.container}>
+      <View style={styles.background} />
+      <View style={styles.content}>
+        <Image source={require("./logo.png")} style={styles.logo} />
+        <Text style={styles.text}>Welcome to My App!</Text>
+        <View style={styles.buttonContainer}>
+          <Button
+            mode="contained"
+            style={styles.button}
+            onPress={() => console.log("Login pressed")}
+          >
+            Login
+          </Button>
+          <Button
+            mode="contained"
+            style={styles.button}
+            onPress={() => console.log("Register pressed")}
+          >
+            Register
+          </Button>
+        </View>
+      </View>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
-  background: {
+  container: {
     flex: 1,
-    width: '100%',
-    backgroundColor: theme.colors.surface,
+    backgroundColor: "#FFFFFF", // Set your desired background color here
   },
-  image: {
-    width: 110,
-    height: 110,
-    marginBottom: 8,
+  background: {
+    position: "absolute",
+    bottom: 0,
+    left: -200,
+    right: -200,
+    height: 400,
+    borderRadius: 400,
+    backgroundColor: "#F2F2F2", // Set your desired circle color here
   },
-  header: {
-    fontSize: 21,
-    color: theme.colors.primary,
-    fontWeight: 'bold',
-    paddingVertical: 12,
+  content: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingHorizontal: 20,
+  },
+  logo: {
+    width: 150,
+    height: 150,
+    marginBottom: 20,
   },
   text: {
-    fontSize: 15,
-    lineHeight: 21,
-    textAlign: 'center',
-    marginBottom: 12,
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 40,
+    color: "white",
+    textAlign: "center",
   },
-})
+  buttonContainer: {
+    width: "100%",
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  button: {
+    width: "48%",
+    marginBottom: 20,
+  },
+});
 
 export default App;
