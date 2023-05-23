@@ -1,13 +1,13 @@
 import React from "react";
-import { View, StyleSheet, Image, Text } from "react-native";
-import { Button } from "react-native-material-ui";
+import {View, StyleSheet, Image, Text } from "react-native";
+import { Button } from "@react-native-material/core";
 
 const App = () => (
   <View style={styles.container}>
     <View style={styles.background} />
     <View style={styles.content}>
-      <Image source={require(".assets/icon.png")} style={styles.logo} />
-      <Text style={styles.text}>Welcome to My App!</Text>
+      <Image source={require("./assets/logo.png")} style={styles.logo} />
+      <Text style={styles.text}>EcoRide</Text>
       <View style={styles.buttonContainer}>
         <Button
           mode="contained"
@@ -31,7 +31,7 @@ const App = () => (
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#FFFFFF", // Set your desired background color here
+    backgroundColor: "#FFFFFF",
   },
   background: {
     position: "absolute",
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     right: -200,
     height: 400,
     borderRadius: 400,
-    backgroundColor: "#F2F2F2", // Set your desired circle color here
+    backgroundColor: "#F2F2F2",
   },
   content: {
     flex: 1,
